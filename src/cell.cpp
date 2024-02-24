@@ -53,3 +53,10 @@ const State Cell::nextState(const Lattice& lattice) const {
 void Cell::updateState(const Lattice& lattice) {
   this->setState(nextState(lattice));
 }
+
+// Implementación de la sobrecarga del operador <<
+std::ostream& operator<<(std::ostream& os, const Cell& cell) {
+    // Si el estado de la célula es 1(true), imprimir 'X', de lo contrario, imprimir ' '
+    os << (cell.getState() ? 'X' : ' ');
+    return os;
+}

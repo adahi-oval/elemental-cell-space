@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <iostream>
 
 // Definiciones de tipos
 using Position = int; // Tipo de dato para la posición dentro del retículo
@@ -22,6 +23,10 @@ public:
     void updateState(const Lattice& lattice); // Método para actualizar el estado de la célula
     const State transitionFunction(const State& C, const State& L, const State& R) const;
     std::vector<State> getNeighbors(const Lattice& lattice) const;
+
+    // Operador de inserción en flujo para la clase Cell
+    friend std::ostream& operator<<(std::ostream& os, const Cell& cell);
+
 
 private:
     Position position_; // Posición dentro del retículo
